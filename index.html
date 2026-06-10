@@ -233,9 +233,10 @@
                     <td class="px-6 py-4"><span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-100">${customer.RevenueVillageName}</span></td>
                     <td class="px-6 py-4 text-right">
                         ${customer.status === 'pending' ? `
-                            <button onclick="executeImmediateRedirect(${customer.id})" class="inline-flex items-center gap-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all active:scale-95">
+                            <!-- Using an anchor link with href="tel:" triggers the calling device app instantly -->
+                            <a href="tel:${customer.MobileNo || ''}" onclick="executeImmediateRedirect(${customer.id})" class="inline-flex items-center gap-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition-all active:scale-95 cursor-pointer">
                                 <i data-lucide="phone" class="w-3.5 h-3.5"></i> Call
-                            </button>
+                            </a>
                         ` : `
                             <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-green-100 text-green-700 border border-green-200"><i data-lucide="check" class="w-3.5 h-3.5"></i> Called</span>
                         `}
